@@ -1,8 +1,13 @@
 import { Navbar, Container } from "react-bootstrap";
+import { SearchBar } from "../searchBar/SearchBar";
 
 export const Header = () => {
   return (
-    <Navbar className="bg-body-tertiary">
+    <Navbar
+      expand="lg"
+      sticky="top"
+      className="bg-body-tertiary justify-content-around"
+    >
       <Container>
         <Navbar.Brand className="fs-1">
           <img
@@ -14,6 +19,7 @@ export const Header = () => {
           />
           PlainReddit
         </Navbar.Brand>
+        <SearchBar />
       </Container>
     </Navbar>
   );
