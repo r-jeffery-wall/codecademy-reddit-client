@@ -1,7 +1,11 @@
+import { useSelector } from "react-redux";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { SearchBar } from "../searchBar/SearchBar";
+import { selectPopularSubs } from "./HeaderSlice";
 
 export const Header = () => {
+  const popularSubs = useSelector(selectPopularSubs);
+
   return (
     <>
       <Navbar
@@ -23,25 +27,20 @@ export const Header = () => {
           <SearchBar />
         </Container>
       </Navbar>
-      <Container fluid style={{ width: "100%" }} className="d-flex justify-content-center align-items-center bg-body-tertiary border-top border-bottom border-secondary-subtle">
+      <Container
+        fluid
+        style={{ width: "100%" }}
+        className="d-flex justify-content-center align-items-center bg-body-tertiary border-top border-bottom border-secondary-subtle"
+      >
         <h2 className="fs-6 m-0">Popular Subs:</h2>
         <Nav className="d-flex justify-content-between align-items-center">
-          <Nav.Item>
-            <Nav.Link>Front Page</Nav.Link>{" "}
-            {/* This will eventually be a call to the API for popular subs. */}
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link>News</Nav.Link>{" "}
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link>Funny</Nav.Link>{" "}
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link>Advice Animals</Nav.Link>{" "}
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link>Gaming</Nav.Link>{" "}
-          </Nav.Item>
+          {popularSubs.map((sub) => (
+            <Nav.Item>
+              <Nav.Link href={sub.url} key={sub.name}>
+                {sub.name}
+              </Nav.Link>
+            </Nav.Item>
+          ))}
         </Nav>
       </Container>
     </>
