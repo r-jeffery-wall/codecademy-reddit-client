@@ -1,11 +1,8 @@
-import { useSelector } from "react-redux";
-import { Navbar, Container, Nav } from "react-bootstrap";
+import { Navbar, Container} from "react-bootstrap";
 import { SearchBar } from "../searchBar/SearchBar";
-import { selectPopularSubs } from "./HeaderSlice";
+import { PopularSubs } from "../PopularSubs/PopularSubs";
 
 export const Header = () => {
-  const popularSubs = useSelector(selectPopularSubs);
-
   return (
     <>
       <Navbar
@@ -27,22 +24,7 @@ export const Header = () => {
           <SearchBar />
         </Container>
       </Navbar>
-      <Container
-        fluid
-        style={{ width: "100%" }}
-        className="d-flex justify-content-center align-items-center bg-body-tertiary border-top border-bottom border-secondary-subtle"
-      >
-        <h2 className="fs-6 m-0">Popular Subs:</h2>
-        <Nav className="d-flex justify-content-between align-items-center">
-          {popularSubs.map((sub) => (
-            <Nav.Item>
-              <Nav.Link href={sub.url} key={sub.name}>
-                {sub.name}
-              </Nav.Link>
-            </Nav.Item>
-          ))}
-        </Nav>
-      </Container>
+      <PopularSubs />
     </>
   );
 };

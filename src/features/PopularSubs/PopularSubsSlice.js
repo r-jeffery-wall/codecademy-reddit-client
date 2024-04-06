@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const HeaderSlice = createSlice({
-    name: 'header',
+const PopularSubsSlice = createSlice({
+    name: 'PopularSubs',
     initialState: [{name: 'Front Page', url: '#'}, {name: 'News', url: '#'}, {name: 'Funny', url: '#'}, {name: 'Advice Animals', url: '#'}, {name: 'Gaming', url: '#'}],
     reducers: {
         getPopularSubs: (state, action) => {
@@ -11,5 +11,5 @@ const HeaderSlice = createSlice({
 })
 
 export const selectPopularSubs = (state) => state.header;
-export const { getPopularSubs } = HeaderSlice.actions;
-export default HeaderSlice.reducer;
+export const { getPopularSubs } = PopularSubsSlice.actions;
+export default PopularSubsSlice.reducer;

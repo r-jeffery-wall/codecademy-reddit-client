@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import headerReducer from '../features/header/HeaderSlice'
+import PopularSubsReducer from '../features/PopularSubs/PopularSubsSlice'
 
 export const store = configureStore({
   reducer: {
-    header: headerReducer
+    header: PopularSubsReducer
   },
 });
 
