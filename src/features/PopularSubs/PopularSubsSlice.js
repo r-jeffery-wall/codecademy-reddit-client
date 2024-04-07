@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const PopularSubsSlice = createSlice({
     name: 'PopularSubs',
-    initialState: [{name: 'Front Page', url: '#'}, {name: 'News', url: '#'}, {name: 'Funny', url: '#'}, {name: 'Advice Animals', url: '#'}, {name: 'Gaming', url: '#'}],
+    initialState: [{name: 'Front Page', url: '#'}, {name: 'News', url: '#'}, {name: 'Funny', url: '#'}, {name: 'Advice Animals', url: '#'}, {name: 'Gaming', url: '#'}], //Dummy Values
     reducers: {
         getPopularSubs: (state, action) => {
             return action.payload;
