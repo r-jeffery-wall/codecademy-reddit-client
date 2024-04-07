@@ -11,7 +11,6 @@ const PostsSlice = createSlice({
     },
     {
         title: 'Test Post',
-        imageSrc: './img/5616.avif',
         text: 'Test post text.',
         upvotes: 456,
         comments: [] //TODO
