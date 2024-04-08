@@ -1,7 +1,7 @@
-export const Comment = (username, commentText) => {
+export const Comment = ({username, commentText}) => {
 	return (
-		<div>
-			<h6>{username}</h6>
+		<div className="border p-0">
+			<h6 className="fw-bold">{username}</h6>
 			<p>{commentText}</p>
 		</div>
 	)
