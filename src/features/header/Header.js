@@ -1,4 +1,4 @@
-import { Navbar, Container} from "react-bootstrap";
+import { Navbar, Container } from "react-bootstrap";
 import { SearchBar } from "../searchBar/SearchBar";
 import { PopularSubs } from "../PopularSubs/PopularSubs";
 
@@ -24,7 +24,7 @@ export const Header = () => {
           <SearchBar />
         </Container>
       </Navbar>
-      <PopularSubs />
+      <PopularSubs/>
     </>
   );
 };
