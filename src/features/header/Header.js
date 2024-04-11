@@ -11,7 +11,7 @@ export const Header = () => {
         className="bg-body-tertiary justify-content-around"
       >
         <Container>
-          <Navbar.Brand className="fs-1">
+          <Navbar.Brand className="fs-1 m-auto">
             <img
               src="./img/icons8-reddit-50.png"
               width="50"
