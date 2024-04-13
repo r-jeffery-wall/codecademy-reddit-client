@@ -31,7 +31,7 @@ export const PopularSubs = () => {
             <Nav className='d-flex flex-column align-items-center'>
               {popularSubs.length > 0 ? popularSubs.map((sub) => (
                 <Nav.Item>
-                  <Nav.Link href={sub.url} key={sub.name}>
+                  <Nav.Link href={sub.url} key={sub.key}>
                     {sub.name}
                   </Nav.Link>
                 </Nav.Item>

@@ -1,12 +1,13 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 export const getPopularSubs = createAsyncThunk('PopularSubs/getPopularSubs', async () => {
-    const response = await fetch('https://api.reddit.com/subreddits/popular.json');
+    const response = await fetch('https://api.reddit.com/subreddits/popular.json?limit=8');
     const json = await response.json();
     const data = json.data.children.map(sub => {
         return {
-        title: sub.title,
-        url: `https://reddit.com/r/${sub.title}`
+        name: sub.data.display_name,
+        url: `https://reddit.com/${sub.data.display_name_prefixed}`,
+        key: sub.data.display_name
         }
     });
     return data;
