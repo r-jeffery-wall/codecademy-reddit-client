@@ -1,9 +1,10 @@
 import { Accordion, Container, Nav } from 'react-bootstrap';
-import { selectPopularSubs } from "./PopularSubsSlice";
-import { useSelector } from 'react-redux';
+import { getPopularSubs, selectPopularSubs } from "./PopularSubsSlice";
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 
 export const PopularSubs = () => {
+  const dispatch = useDispatch();
   const popularSubs = useSelector(selectPopularSubs);
   const [isMobile, setMobile] = useState(window.innerWidth < 576); //This lines up with the Bootstrap sm breakpoint.
   const updateMobile = () => {
@@ -13,6 +14,10 @@ export const PopularSubs = () => {
   useEffect(() => {
     window.addEventListener("resize", updateMobile);
   })
+
+  useEffect(() => {
+    dispatch(getPopularSubs());
+  }, [])
 
 
   if (isMobile) {
@@ -24,13 +29,13 @@ export const PopularSubs = () => {
           </Accordion.Header>
           <Accordion.Body>
             <Nav className='d-flex flex-column align-items-center'>
-              {popularSubs.map((sub) => (
+              {popularSubs.length > 0 ? popularSubs.map((sub) => (
                 <Nav.Item>
                   <Nav.Link href={sub.url} key={sub.name}>
                     {sub.name}
                   </Nav.Link>
                 </Nav.Item>
-              ))}
+              )) : <></>}
             </Nav>
           </Accordion.Body>
         </Accordion.Item>

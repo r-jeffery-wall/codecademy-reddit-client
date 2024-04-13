@@ -5,7 +5,7 @@ import PostsSlice from '../features/posts/PostsSlice';
 
 export const store = configureStore({
   reducer: {
-    header: PopularSubsReducer,
+    PopularSubs: PopularSubsReducer,
     posts: PostsSlice,
     comments: CommentsSlice
   },

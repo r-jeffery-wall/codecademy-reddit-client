@@ -1,15 +1,42 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+
+export const getPopularSubs = createAsyncThunk('PopularSubs/getPopularSubs', async () => {
+    const response = await fetch('https://reddit.com/subreddits/popular.json');
+    const json = await response.json();
+    const data = json.data.children.map(sub => {
+        return {
+        title: sub.title,
+        url: `https://reddit.com/r/${sub.title}`
+        }
+    });
+    return data;
+})
 
 const PopularSubsSlice = createSlice({
     name: 'PopularSubs',
-    initialState: [{name: 'Front Page', url: '#'}, {name: 'News', url: '#'}, {name: 'Funny', url: '#'}, {name: 'Advice Animals', url: '#'}, {name: 'Gaming', url: '#'}], //Dummy Values
+    initialState: {
+        popularSubsList: [],
+        popularSubsLoading: false,
+        popularSubsFailed: false
+    },
     reducers: {
-        getPopularSubs: (state, action) => {
-            return action.payload;
+    },
+    extraReducers: {
+        [getPopularSubs.pending]: (state) => {
+            state.popularSubsLoading = true;
+            state.popularSubsFailed = false;
+        },
+        [getPopularSubs.fulfilled]: (state, action) => {
+            state.popularSubsLoading = false;
+            state.popularSubsFailed = false;
+            state.popularSubsList = action.payload;
+        },
+        [getPopularSubs.rejected]: (state) => {
+            state.popularSubsLoading = false;
+            state.popularSubsFailed = true;
         }
     }
 })
 
-export const selectPopularSubs = (state) => state.header;
-export const { getPopularSubs } = PopularSubsSlice.actions;
+export const selectPopularSubs = (state) => state.PopularSubs.popularSubsList;
 export default PopularSubsSlice.reducer;
