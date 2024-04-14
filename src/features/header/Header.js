@@ -4,10 +4,9 @@ import { PopularSubs } from "../PopularSubs/PopularSubs";
 
 export const Header = () => {
   return (
-    <>
+    <Container fluid className="position-sticky top-0 m-0" style={{zIndex: 5}}>
       <Navbar
         expand="lg"
-        sticky="top"
         className="bg-body-tertiary justify-content-around"
       >
         <Container>
@@ -25,6 +24,6 @@ export const Header = () => {
         </Container>
       </Navbar>
       <PopularSubs/>
-    </>
+    </Container>
   );
 };
