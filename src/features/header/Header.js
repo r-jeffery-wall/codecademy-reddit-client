@@ -19,7 +19,7 @@ export const Header = () => {
               alt="a plain outline of the reddit logo."
               className="me-3"
             />
-            PlainReddit
+            ReadOnlyReddit
           </Navbar.Brand>
           <SearchBar />
         </Container>
