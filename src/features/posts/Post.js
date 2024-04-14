@@ -1,13 +1,14 @@
 import { useSelector } from "react-redux";
 import { CommentsList } from "../comments/CommentsList";
 import { selectComments } from "../comments/CommentsSlice";
+import { PostHeader } from "./PostHeader";
 
-export const Post = ({ title, imgSrc, text, upvotes }) => {
+export const Post = ({ title, imgSrc, text, upvotes, subreddit }) => {
   const comments = useSelector(selectComments); // This will need to be modified to use the Post id to find the relevant comments.
 
   return (
     <div className="bg-body-tertiary border rounded my-3">
-      <h3 className="fw-bold p-1">{title}</h3>
+      <PostHeader title={title} subreddit={subreddit} />
       {imgSrc ? (
         <img
           src={imgSrc}
