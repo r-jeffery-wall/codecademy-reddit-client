@@ -9,9 +9,10 @@ export const getPostsforSub = createAsyncThunk(
     const data = json.data.children.map((post) => {
       return {
         subreddit: post.data.subreddit_name_prefixed,
-        author: post.data.author_fullname,
+        author: post.data.author,
+        timestamp: post.data.created,
         title: post.data.title,
-        upvotes: post.data.ups,
+        upvotes: post.data.score,
         key: post.data.name,
         text: post.data.selftext,
         url: post.data.url,

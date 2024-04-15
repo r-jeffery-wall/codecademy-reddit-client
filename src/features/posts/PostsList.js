@@ -13,7 +13,7 @@ export const PostsList = () => {
 
     return (
         <ul className="col-sm-6 m-auto p-3">
-            {posts.length > 0 ? posts.map(post => <Post title={post.title} imgSrc={post.imageSrc} text={post.text} upvotes={post.upvotes} subreddit={post.subreddit} key={post.key} url={post.url}/>) : <></>}
+            {posts.length > 0 ? posts.map(post => <Post title={post.title} imgSrc={post.imageSrc} text={post.text} upvotes={post.upvotes} subreddit={post.subreddit} key={post.key} url={post.url} author={post.author} timestamp={post.timestamp}/>) : <></>}
         </ul>
     )
 }
