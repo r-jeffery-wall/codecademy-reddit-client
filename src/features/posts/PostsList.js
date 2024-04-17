@@ -5,7 +5,7 @@ import {
   selectPosts,
 } from "./PostsSlice";
 import { Post } from "./Post";
-import {Container} from 'react-bootstrap';
+import { Container } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { selectCommentsForPostId } from "../comments/CommentsSlice";
@@ -24,7 +24,11 @@ export const PostsList = () => {
   if (postsLoading) {
     return <Container className="fs-1 text-center">Posts Loading...</Container>;
   } else if (postsFailed) {
-    return <Container className="fs-1 text-center">Loading failed! Please refresh the page.</Container>;
+    return (
+      <Container className="fs-1 text-center">
+        Loading failed! Please refresh the page.
+      </Container>
+    );
   } else {
     return (
       <ul className="col-sm-6 m-auto p-3">

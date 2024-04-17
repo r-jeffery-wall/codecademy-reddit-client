@@ -1,4 +1,4 @@
-import {Container} from 'react-bootstrap';
+import { Container } from "react-bootstrap";
 
 export const PostMedia = ({ media }) => {
   if (media.includes("i.redd.it")) {
@@ -11,7 +11,7 @@ export const PostMedia = ({ media }) => {
     );
   } else if (media.includes("youtu.be")) {
     return (
-      <Container className='ratio ratio-16x9'>
+      <Container className="ratio ratio-16x9">
         <iframe
           width="560"
           height="315"
@@ -26,8 +26,13 @@ export const PostMedia = ({ media }) => {
       </Container>
     );
   } else if (media.includes("v.redd.it")) {
-    return <p className='p-1 text-center'>Reddit video is currently unsupported. Please click the post link to view the video on Reddit.</p>
+    return (
+      <p className="p-1 text-center">
+        Reddit video is currently unsupported. Please click the post link to
+        view the video on Reddit.
+      </p>
+    );
   } else {
-    return <></>
+    return <></>;
   }
 };

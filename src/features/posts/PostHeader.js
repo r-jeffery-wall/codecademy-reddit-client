@@ -9,7 +9,9 @@ export const PostHeader = ({ title, author, subreddit, url, timestamp }) => {
       </a>
       <Container fluid className="d-flex justify-content-between p-0">
         <p className="p-1">{subreddit}</p>
-        <p className="p-1">Posted {moment.unix(timestamp).fromNow()} by {author}</p>
+        <p className="p-1">
+          Posted {moment.unix(timestamp).fromNow()} by {author}
+        </p>
       </Container>
     </Container>
   );

@@ -1,5 +1,5 @@
 import { UpvoteDisplay } from "../UpVoteDisplay/UpvoteDisplay";
-import {Container} from 'react-bootstrap';
+import { Container } from "react-bootstrap";
 import moment from "moment";
 
 export const Comment = ({ username, commentText, score, timestamp }) => {

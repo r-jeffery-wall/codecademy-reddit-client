@@ -4,11 +4,12 @@ import { PopularSubs } from "../PopularSubs/PopularSubs";
 
 export const Header = () => {
   return (
-    <Container fluid className="position-sticky top-0 m-0" style={{zIndex: 5}}>
-      <Navbar
-        expand="lg"
-        className="bg-body-tertiary justify-content-around"
-      >
+    <Container
+      fluid
+      className="position-sticky top-0 m-0"
+      style={{ zIndex: 5 }}
+    >
+      <Navbar expand="lg" className="bg-body-tertiary justify-content-around">
         <Container>
           <Navbar.Brand className="fs-1 m-auto">
             <img
@@ -23,7 +24,7 @@ export const Header = () => {
           <SearchBar />
         </Container>
       </Navbar>
-      <PopularSubs/>
+      <PopularSubs />
     </Container>
   );
 };

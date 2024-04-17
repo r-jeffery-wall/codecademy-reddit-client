@@ -16,7 +16,7 @@ export const getPostsforSub = createAsyncThunk(
         key: post.data.id,
         text: post.data.selftext,
         url: post.data.url,
-        numComments: post.data.num_comments
+        numComments: post.data.num_comments,
       };
     });
     return data;
