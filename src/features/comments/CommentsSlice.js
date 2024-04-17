@@ -11,7 +11,8 @@ export const getCommentsForPost = createAsyncThunk('comments/getCommentsForPost'
 			return {
 				author: comment.data.author,
 				text: comment.data.body,
-				score: comment.data.score
+				score: comment.data.score,
+				timestamp: comment.data.created
 			}
 		})
 	} 

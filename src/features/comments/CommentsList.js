@@ -21,7 +21,7 @@ export const CommentsList = ( {comments, subreddit, postId, upvotes, commentsNum
 				</Accordion.Header>
 				<AccordionBody className="p-0">
 					<ul className="p-0">
-					{comments ? comments.map(comment => <Comment username={comment.author} commentText={comment.text} score={comment.score} />) : <></>}
+					{comments ? comments.map(comment => <Comment username={comment.author} commentText={comment.text} score={comment.score} timestamp={comment.timestamp} />) : <></>}
 					</ul>
 				</AccordionBody>
 			</Accordion.Item>
