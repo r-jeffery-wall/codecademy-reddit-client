@@ -1,21 +1,54 @@
-import { getPostsforSub, selectPosts } from "./PostsSlice"
-import { Post } from './Post';
-import { useDispatch, useSelector } from 'react-redux';
+import {
+  getPostsforSub,
+  isPostsFailed,
+  isPostsLoading,
+  selectPosts,
+} from "./PostsSlice";
+import { Post } from "./Post";
+import {Container} from 'react-bootstrap';
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { selectCommentsForPostId } from "../comments/CommentsSlice";
 
 export const PostsList = () => {
-    const dispatch = useDispatch();
-    const posts = useSelector(selectPosts); // This will eventually using routing to get the sub.
-    const comments = useSelector(selectCommentsForPostId);
-    
-    useEffect(() => {
-        dispatch(getPostsforSub(''));
-    }, [])
+  const dispatch = useDispatch();
+  const postsLoading = useSelector(isPostsLoading);
+  const postsFailed = useSelector(isPostsFailed);
+  const posts = useSelector(selectPosts); // This will eventually using routing to get the sub.
+  const comments = useSelector(selectCommentsForPostId);
 
+  useEffect(() => {
+    dispatch(getPostsforSub(""));
+  }, []);
+
+  if (postsLoading) {
+    return <Container className="fs-1 text-center">Posts Loading...</Container>;
+  } else if (postsFailed) {
+    return <Container className="fs-1 text-center">Loading failed! Please refresh the page.</Container>;
+  } else {
     return (
-        <ul className="col-sm-6 m-auto p-3">
-            {posts.length > 0 ? posts.map(post => <Post title={post.title} imgSrc={post.imageSrc} text={post.text} upvotes={post.upvotes} subreddit={post.subreddit} key={post.key} id={post.key} url={post.url} author={post.author} timestamp={post.timestamp} comments={comments[post.key]} commentsNumber={post.numComments}/>) : <></>}
-        </ul>
-    )
-}
+      <ul className="col-sm-6 m-auto p-3">
+        {posts.length > 0 ? (
+          posts.map((post) => (
+            <Post
+              title={post.title}
+              imgSrc={post.imageSrc}
+              text={post.text}
+              upvotes={post.upvotes}
+              subreddit={post.subreddit}
+              key={post.key}
+              id={post.key}
+              url={post.url}
+              author={post.author}
+              timestamp={post.timestamp}
+              comments={comments[post.key]}
+              commentsNumber={post.numComments}
+            />
+          ))
+        ) : (
+          <></>
+        )}
+      </ul>
+    );
+  }
+};

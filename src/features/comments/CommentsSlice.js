@@ -48,4 +48,5 @@ const CommentsSlice = createSlice({
 })
 
 export const selectCommentsForPostId = (state) => state.comments.commentsForPostId; 
+export const isCommentsLoading = (state) => state.comments.commentsLoading;
 export default CommentsSlice.reducer;

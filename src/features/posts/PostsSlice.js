@@ -49,4 +49,6 @@ const PostsSlice = createSlice({
 });
 
 export const selectPosts = (state) => state.posts.postsList;
+export const isPostsLoading = (state) => state.posts.postsLoading;
+export const isPostsFailed = (state) => state.posts.postsFailed;
 export default PostsSlice.reducer;

@@ -40,4 +40,5 @@ const PopularSubsSlice = createSlice({
 })
 
 export const selectPopularSubs = (state) => state.PopularSubs.popularSubsList;
+export const isPopularSubsLoading = (state) => state.PopularSubs.popularSubsLoading;
 export default PopularSubsSlice.reducer;

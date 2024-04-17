@@ -1,11 +1,16 @@
-import { Accordion, Container, Nav } from 'react-bootstrap';
-import { getPopularSubs, selectPopularSubs } from "./PopularSubsSlice";
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { Accordion, Container, Nav } from "react-bootstrap";
+import {
+  getPopularSubs,
+  isPopularSubsLoading,
+  selectPopularSubs,
+} from "./PopularSubsSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 
 export const PopularSubs = () => {
   const dispatch = useDispatch();
   const popularSubs = useSelector(selectPopularSubs);
+  const popularSubsLoading = useSelector(isPopularSubsLoading);
   const [isMobile, setMobile] = useState(window.innerWidth < 576); //This lines up with the Bootstrap sm breakpoint.
   const updateMobile = () => {
     setMobile(window.innerWidth < 576);
@@ -13,34 +18,45 @@ export const PopularSubs = () => {
 
   useEffect(() => {
     window.addEventListener("resize", updateMobile);
-  })
+  });
 
   useEffect(() => {
     dispatch(getPopularSubs());
-  }, [])
+  }, []);
 
-
-  if (isMobile) {
+  if (popularSubsLoading) {
     return (
-      <Accordion className='bg-body-tertiary border-top border-bottom border-secondary-subtle'>
-        <Accordion.Item eventKey='0'>
-          <Accordion.Header>
-            Popular subs
-          </Accordion.Header>
+      <Container
+        fluid
+        style={{ width: "100%" }}
+        className="d-flex justify-content-center align-items-center bg-body-tertiary border-top border-bottom border-secondary-subtle"
+      >
+        Loading...
+      </Container>
+    );
+  } else if (isMobile) {
+    return (
+      <Accordion className="bg-body-tertiary border-top border-bottom border-secondary-subtle">
+        <Accordion.Item eventKey="0">
+          <Accordion.Header>Popular subs</Accordion.Header>
           <Accordion.Body>
-            <Nav className='d-flex flex-column align-items-center'>
-              {popularSubs.length > 0 ? popularSubs.map((sub) => (
-                <Nav.Item>
-                  <Nav.Link href={sub.url} key={sub.key}>
-                    {sub.name}
-                  </Nav.Link>
-                </Nav.Item>
-              )) : <></>}
+            <Nav className="d-flex flex-column align-items-center">
+              {popularSubs.length > 0 ? (
+                popularSubs.map((sub) => (
+                  <Nav.Item>
+                    <Nav.Link href={sub.url} key={sub.key}>
+                      {sub.name}
+                    </Nav.Link>
+                  </Nav.Item>
+                ))
+              ) : (
+                <></>
+              )}
             </Nav>
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
-    )
+    );
   } else {
     return (
       <Container
