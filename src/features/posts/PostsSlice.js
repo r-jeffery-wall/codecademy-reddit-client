@@ -31,7 +31,7 @@ export const searchPosts = createAsyncThunk(
   "posts/searchPosts",
   async (searchTerm) => {
     const response = await fetch(
-      `https://api.reddit.com/?q=${searchTerm}&limit=10`
+      `https://api.reddit.com/search/?q=${searchTerm}&limit=10`
     );
     return processResponse(response);
   }

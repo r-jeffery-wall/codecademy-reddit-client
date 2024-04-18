@@ -26,7 +26,7 @@ export const searchSubs = createAsyncThunk(
   "PopularSubs/searchSubs",
   async (searchTerm) => {
     const response = await fetch(
-      `https://api/reddit.com/subreddits/search?q=${searchTerm}&limit=10`
+      `https://api.reddit.com/subreddits/search?q=${searchTerm}&limit=10`
     );
     return processResponse(response);
   }
