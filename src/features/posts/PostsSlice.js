@@ -43,39 +43,47 @@ const PostsSlice = createSlice({
     postsList: [],
     postsLoading: false,
     postsFailed: false,
+    postsSearchFailed: false,
   },
   reducers: {},
   extraReducers: {
     [getPostsforSub.pending]: (state) => {
       state.postsLoading = true;
       state.postsFailed = false;
+      state.postsSearchFailed = false;
     },
     [getPostsforSub.fulfilled]: (state, action) => {
       state.postsLoading = false;
       state.postsFailed = false;
       state.postsList = action.payload;
+      state.postsSearchFailed = false;
     },
     [getPostsforSub.rejected]: (state) => {
       state.postsLoading = false;
       state.postsFailed = true;
+      state.postsSearchFailed = false;
     },
     [searchPosts.pending]: (state) => {
       state.postsLoading = true;
       state.postsFailed = false;
+      state.postsSearchFailed = false;
     },
     [searchPosts.fulfilled]: (state, action) => {
       state.postsLoading = false;
       state.postsFailed = false;
       state.postsList = action.payload;
+      state.postsSearchFailed = false;
     },
     [searchPosts.rejected]: (state) => {
       state.postsLoading = false;
-      state.postsFailed = true;
-    }
+      state.postsFailed = false;
+      state.postsSearchFailed = true;
+    },
   },
 });
 
 export const selectPosts = (state) => state.posts.postsList;
 export const isPostsLoading = (state) => state.posts.postsLoading;
 export const isPostsFailed = (state) => state.posts.postsFailed;
+export const isPostsSearchFailed = (state) => state.posts.postsSearchFailed;
 export default PostsSlice.reducer;

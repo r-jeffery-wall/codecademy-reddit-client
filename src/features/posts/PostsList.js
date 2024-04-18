@@ -2,6 +2,7 @@ import {
   getPostsforSub,
   isPostsFailed,
   isPostsLoading,
+  isPostsSearchFailed,
   selectPosts,
 } from "./PostsSlice";
 import { Post } from "./Post";
@@ -14,6 +15,7 @@ export const PostsList = () => {
   const dispatch = useDispatch();
   const postsLoading = useSelector(isPostsLoading);
   const postsFailed = useSelector(isPostsFailed);
+  const searchFailed = useSelector(isPostsSearchFailed);
   const posts = useSelector(selectPosts); // This will eventually using routing to get the sub.
   const comments = useSelector(selectCommentsForPostId);
 
@@ -25,8 +27,14 @@ export const PostsList = () => {
     return <Container className="fs-1 text-center">Posts Loading...</Container>;
   } else if (postsFailed) {
     return (
-      <Container className="fs-1 text-center">
+      <Container className="fs-1 text-center text-danger">
         Loading failed! Please refresh the page.
+      </Container>
+    );
+  } else if (searchFailed) {
+    return (
+      <Container className="fs-1 text-center text-danger">
+        Search failed! Please try a different search term.
       </Container>
     );
   } else {

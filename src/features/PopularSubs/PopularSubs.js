@@ -1,7 +1,9 @@
 import { Accordion, Container, Nav } from "react-bootstrap";
 import {
   getPopularSubs,
+  isPopularSubsFailed,
   isPopularSubsLoading,
+  isSubsSearchFailed,
   selectPopularSubs,
 } from "./PopularSubsSlice";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,6 +13,8 @@ export const PopularSubs = () => {
   const dispatch = useDispatch();
   const popularSubs = useSelector(selectPopularSubs);
   const popularSubsLoading = useSelector(isPopularSubsLoading);
+  const popularSubsFailed = useSelector(isPopularSubsFailed);
+  const searchFailed = useSelector(isSubsSearchFailed);
   const [isMobile, setMobile] = useState(window.innerWidth < 576); //This lines up with the Bootstrap sm breakpoint.
   const updateMobile = () => {
     setMobile(window.innerWidth < 576);
@@ -32,6 +36,26 @@ export const PopularSubs = () => {
         className="d-flex justify-content-center align-items-center bg-body-tertiary border-top border-bottom border-secondary-subtle"
       >
         Loading...
+      </Container>
+    );
+  } else if (popularSubsFailed) {
+    return (
+      <Container
+        fluid
+        style={{ width: "100%"}}
+        className="d-flex justify-content-center align-items-center bg-body-tertiary border-top border-bottom border-secondary-subtle text-danger"
+      >
+        Failed getting subs list! Please refresh the page.
+      </Container>
+    );
+  } else if (searchFailed) {
+    return (
+      <Container
+        fluid
+        style={{ width: "100%"}}
+        className="d-flex justify-content-center align-items-center bg-body-tertiary border-top border-bottom border-secondary-subtle text-danger"
+      >
+        Search failed! Please try a different search term.
       </Container>
     );
   } else if (isMobile) {

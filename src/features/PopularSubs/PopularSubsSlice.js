@@ -38,34 +38,41 @@ const PopularSubsSlice = createSlice({
     popularSubsList: [],
     popularSubsLoading: false,
     popularSubsFailed: false,
+    SubSearchFailed: false,
   },
   reducers: {},
   extraReducers: {
     [getPopularSubs.pending]: (state) => {
       state.popularSubsLoading = true;
       state.popularSubsFailed = false;
+      state.SubSearchFailed = false;
     },
     [getPopularSubs.fulfilled]: (state, action) => {
       state.popularSubsLoading = false;
       state.popularSubsFailed = false;
       state.popularSubsList = action.payload;
+      state.SubSearchFailed = false;
     },
     [getPopularSubs.rejected]: (state) => {
       state.popularSubsLoading = false;
       state.popularSubsFailed = true;
+      state.SubSearchFailed = false;
     },
     [searchSubs.pending]: (state) => {
       state.popularSubsLoading = true;
       state.popularSubsFailed = false;
+      state.SubSearchFailed = false;
     },
     [searchSubs.fulfilled]: (state, action) => {
       state.popularSubsLoading = false;
       state.popularSubsFailed = false;
       state.popularSubsList = action.payload;
+      state.SubSearchFailed = false;
     },
     [searchSubs.rejected]: (state) => {
       state.popularSubsLoading = false;
-      state.popularSubsFailed = true;
+      state.popularSubsFailed = false;
+      state.SubSearchFailed = true;
     },
   },
 });
@@ -73,4 +80,6 @@ const PopularSubsSlice = createSlice({
 export const selectPopularSubs = (state) => state.PopularSubs.popularSubsList;
 export const isPopularSubsLoading = (state) =>
   state.PopularSubs.popularSubsLoading;
+export const isPopularSubsFailed = (state) => state.PopularSubs.popularSubsFailed;
+export const isSubsSearchFailed = (state) => state.PopularSubs.SubSearchFailed;
 export default PopularSubsSlice.reducer;
