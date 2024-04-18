@@ -1,46 +1,11 @@
-# Getting Started with Create React App and Redux
+# React-Redux Reddit Client (ReadOnlyReddit)
+This project came from a portfolio project which was part of the [Codecademy Full Stack Engineer Course](https://www.codecademy.com/career-journey/full-stack-engineer). The project uses React-Redux to create a read-only Reddit client. Users can view the Reddit front page, view post comments, and search for subreddits and posts. This is also the first project I have built where I have used component libraries. I used [Bootstrap](https://getbootstrap.com) and [react-bootstrap](https://react-bootstrap.github.io) All data is derived from the [Reddit API](https://www.reddit.com/dev/api/).
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+## What Did I learn?
+This project was an excellent way for me to practice building redux stores and reducers and linking them with React components. I also learned a great deal about how to interact with APIs by using [Redux Toolkit's](https://redux-toolkit.js.org) `createAsyncThunk()` function. I also learned the utility of component libraries. Using Bootstrap for my layout and styling allowed me to create a basic function UI and saved me from wasting a lot of time fiddling around with CSS.
 
-## Available Scripts
+## Limitations
+This app only uses the unauthenticated sections of the Reddit API. This means that there can be no interaction with posts such as sending upvotes or posting comments. I decided to make this a 'selling point' of my app and instead offer a read-only experience. Some media types (Reddit video) are not supported and the user must follow the link to Reddit to view the content. I also have not yet implemented proper selection of subs. It had been my intention to use [react-router](https://reactrouter.com/en/main) to allow the app to display different subreddit's feeds based on URL routing. I did not have time to implement this in the initial version of the app and so links to subreddits just link externally to Reddit. The app currently can only be used to view the Reddit front page or a list of posts corresponding to a search term.
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Next Steps
+The next thing I would like to do with this project is to implement proper routing using [react-router](https://reactrouter.com/en/main). This would require a fairly extensive rebuild of the page logic and structure but it would open the door to displaying a list of posts based on a particular subreddit, greatly enhancing the functionality of the app.
