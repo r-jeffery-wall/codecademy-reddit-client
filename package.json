@@ -1,7 +1,7 @@
 {
   "name": "codecademy-reddit-client",
   "version": "0.1.0",
-  "homepage": "https://rowanjefferywall.com/codecademy-reddit-client/",
+  "homepage": "https://r-jeffery-wall.github.io/codecademy-reddit-client/",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.7",

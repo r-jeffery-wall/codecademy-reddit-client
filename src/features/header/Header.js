@@ -1,6 +1,7 @@
 import { Navbar, Container } from "react-bootstrap";
 import { SearchBar } from "../searchBar/SearchBar";
 import { PopularSubs } from "../PopularSubs/PopularSubs";
+import logo from '../../img/icons8-reddit-50.png';
 
 export const Header = () => {
   return (
@@ -13,7 +14,7 @@ export const Header = () => {
         <Container>
           <Navbar.Brand className="m-auto d-flex align-items-center">
             <img
-              src="./img/icons8-reddit-50.png"
+              src={logo}
               width="50"
               height="50"
               alt="a plain outline of the reddit logo."
