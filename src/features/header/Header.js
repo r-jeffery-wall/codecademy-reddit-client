@@ -11,7 +11,7 @@ export const Header = () => {
     >
       <Navbar expand="lg" className="bg-body-tertiary justify-content-around">
         <Container>
-          <Navbar.Brand className="fs-1 m-auto">
+          <Navbar.Brand className="m-auto d-flex align-items-center">
             <img
               src="./img/icons8-reddit-50.png"
               width="50"
@@ -19,7 +19,10 @@ export const Header = () => {
               alt="a plain outline of the reddit logo."
               className="me-3"
             />
-            ReadOnlyReddit
+            <div>
+              <h1 className="m-0">ReadOnlyReddit</h1>
+              <p className="m-0">No accounts, no upvotes, just content.</p>
+            </div>
           </Navbar.Brand>
           <SearchBar />
         </Container>
