@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/codecademy-reddit-client/static/css/main.1dba803f.css",
-    "main.js": "/codecademy-reddit-client/static/js/main.a85874de.js",
+    "main.js": "/codecademy-reddit-client/static/js/main.8cd00cee.js",
     "static/js/453.7a841040.chunk.js": "/codecademy-reddit-client/static/js/453.7a841040.chunk.js",
     "index.html": "/codecademy-reddit-client/index.html",
     "main.1dba803f.css.map": "/codecademy-reddit-client/static/css/main.1dba803f.css.map",
-    "main.a85874de.js.map": "/codecademy-reddit-client/static/js/main.a85874de.js.map",
+    "main.8cd00cee.js.map": "/codecademy-reddit-client/static/js/main.8cd00cee.js.map",
     "453.7a841040.chunk.js.map": "/codecademy-reddit-client/static/js/453.7a841040.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1dba803f.css",
-    "static/js/main.a85874de.js"
+    "static/js/main.8cd00cee.js"
   ]
 }
