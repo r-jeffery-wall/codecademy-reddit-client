@@ -9,3 +9,5 @@ This app only uses the unauthenticated sections of the Reddit API. This means th
 
 ## Next Steps
 The next thing I would like to do with this project is to implement proper routing using [react-router](https://reactrouter.com/en/main). This would require a fairly extensive rebuild of the page logic and structure but it would open the door to displaying a list of posts based on a particular subreddit, greatly enhancing the functionality of the app.
+
+I also did not have much time to write proper tests for this App. I am not very experienced with writing tests for React-Redux apps. For my next project I would like to spend some time learning how to write effective tests and mocks in order to work with a Test Driven Development approach.
